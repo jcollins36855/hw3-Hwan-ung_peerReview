@@ -2,7 +2,7 @@
 version: 1
 project:
   id: ceab4641-6bb2-46d6-af94-ccaaa11160ec
-  title: "HW 03: LIGO Event Tutorial"
+  title: "HW 03: LIGO Event Tutorial!"
   authors: ["Woojin Lee"]
   github: https://github.com/UCB-stat-159-f25/hw3-Hwan-ung
   toc: _toc.yml
