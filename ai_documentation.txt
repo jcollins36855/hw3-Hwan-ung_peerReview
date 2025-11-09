@@ -1,18 +1,33 @@
 Assignment: STAT159 HW3 (MyST + GitHub Pages)
-Tool: ChatGPT (OpenAI)
+AI Tool: ChatGPT (OpenAI)
 
-Prompts (summary):
+Prompts:
+
 - How to automatically deploy a MyST site using GitHub Actions
-- How to configure myst.yml, _toc.yml, and index.md
-- How to create a Makefile (env / html / clean)
-- How to structure .gitignore and README templates
+- Detailed structure and purpose of each Makefile target (env / html / clean)
+- Whether _toc.yml can replace toc: inside myst.yml
+- What happens when figures/ and audio/ are included in .gitignore
+- Diagnosing common MyST deploy failures (GitHub Actions / Pages)
 
 Key outputs (summary):
-- .github/workflows/deploy.yml
-- myst.yml, _toc.yml, index.md
-- Makefile (env / html / clean)
-- README with Binder badge and MyST site link
 
-Notes:
-- Added Binder and GitHub Pages links to the repository.
-- Excluded unnecessary files and outputs using .gitignore.
+- .github/workflows/deploy.yml
+- Makefile automating environment setup (env), local HTML build (html), and cleanup (clean)
+- _toc.yml can be used instead of the inline toc: section in myst.yml when custom navigation or ordering is needed. MyST automatically prioritizes _toc.yml if present.
+- Including figures/ and audio/ in .gitignore would not delete existing files but would stop tracking new ones — this is typically avoided if the folders contain outputs referenced in the site or report.
+
+- MyST Deploy Failure – Cause Analysis
+
+When deployment initially failed, the most common causes identified were:
+
+Incorrect workflow path – The .github/workflows folder or YAML filename did not match the expected naming convention (pages.yml, deploy.yml, etc.).
+
+Build directory mismatch – GitHub Actions uploaded _site while MyST generated _build/html, leading to “empty site” deployments.
+
+Improper YAML indentation – A small indentation error in the workflow (e.g., under jobs: or with:) prevented the Action from executing configure-pages.
+
+Missing MyST installation – The workflow lacked npm install -g mystmd, so the site never built.
+
+Permissions not set – The workflow’s permissions: block was missing contents: read, pages: write, or id-token: write.
+
+Branch mismatch – The trigger (on: push: branches: [main]) did not align with the active branch.

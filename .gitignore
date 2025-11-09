@@ -2,7 +2,4 @@
 _build
 _site/
 
-figures/
-audio/
-
 .ipynb_checkpoints/
