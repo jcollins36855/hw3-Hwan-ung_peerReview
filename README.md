@@ -10,3 +10,4 @@
 This assignment reproduces the LIGO Gravitational Wave Event Tutorial using the MyST Markdown framework.  
 The goal is to demonstrate reproducible research practices by organizing the project as a MyST site,  
 including Binder integration for interactive exploration and automatic deployment through GitHub Pages.
+Throughout this project, the original LIGO tutorial codebase was modularized and refactored into a reusable Python package located in the `ligotools/` directory, accompanied by a proper `pyproject.toml` for installation. I also included utility functions in 'utils.py' and extensive testing was added using pytest to ensure correctness and reproducability.
