@@ -1,4 +1,4 @@
-name: ligo
+name: ligo-peer
 
 channels:
   - conda-forge

@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools >= 70", "wheel", "numpy"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ligotools"
+authors = [
+  { name = "LIGO Scientific Collaboration (LSC) and Woojin Lee", email = "leewoojin@berkeley.edu" }
+]
+description = "LIGO LOSC tutorial utilities"
+readme = "README.md"
+
+requires-python = ">=3.9"
+dependencies = [
+    "numpy==2.0",
+	"scipy==1.13",
+	"h5py==3.12",
+	"matplotlib==3.9",
+	"ipykernel==6.29"
+]
+
+license = "BSD-3-Clause"
+license-files = ["LICEN[CS]E*"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent"
+]
+
+keywords = ["ligo", "losc", "gravitational-waves", "signal-processing"]
+dynamic = ["version"]
+
+[project.urls]
+Homepage = "https://github.com/UCB-stat-159-f25/hw3-Hwan-ung"
+Issues = "https://github.com/UCB-stat-159-f25/hw3-Hwan-ung/issues"
+
+[tool.setuptools]
+packages = ["ligotools"]
+
+[tool.setuptools.dynamic]
+version = {attr = "ligotools.__version__"}
